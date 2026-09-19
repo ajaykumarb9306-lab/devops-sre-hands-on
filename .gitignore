@@ -1,0 +1,33 @@
+# macOS
+.DS_Store
+
+# VS Code
+.vscode/
+
+# Secrets
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+*.tfvars
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.swp
