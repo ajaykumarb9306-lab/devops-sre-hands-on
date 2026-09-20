@@ -1,0 +1,19 @@
+services:
+
+  web:
+    image: nginx:alpine
+
+    container_name: compose-nginx
+
+    ports:
+      - "8080:80"
+
+    volumes:
+      - ./index.html:/usr/share/nginx/html/index.html:ro
+
+    restart: unless-stopped
+
+
+
+
+    docker run -d -p 8080:80 ...
