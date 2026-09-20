@@ -1,57 +1,67 @@
-# Users and Groups
+# Process Management
 
-Current user:
+View processes:
 
 ```bash
-whoami
-id
+ps aux
 ```
 
-View users:
+Search:
 
 ```bash
-cat /etc/passwd
+pgrep -af nginx
 ```
 
-Create user:
+Live monitoring:
 
 ```bash
-sudo useradd -m devopsuser
+top
 ```
 
-Set password:
+Top CPU consumers:
 
 ```bash
-sudo passwd devopsuser
+ps aux --sort=-%cpu | head
 ```
 
-Create group:
+Top memory consumers:
 
 ```bash
-sudo groupadd devops
+ps aux --sort=-%mem | head
 ```
 
-Add user:
+Inspect process:
 
 ```bash
-sudo usermod -aG devops devopsuser
+ps -fp <PID>
 ```
 
-Verify:
+Terminate:
 
 ```bash
-id devopsuser
-groups devopsuser
+kill <PID>
 ```
 
-Switch user:
+Force termination only when necessary:
 
 ```bash
-su - devopsuser
+kill -9 <PID>
 ```
 
-Delete user:
+Run process in background:
 
 ```bash
-sudo userdel -r devopsuser
+sleep 300 &
+```
+
+Find its PID:
+
+```bash
+pgrep sleep
+```
+
+View shell jobs:
+
+```bash
+jobs
 ```

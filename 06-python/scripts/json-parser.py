@@ -35,6 +35,23 @@ def main():
 
     print(json.dumps(data, indent=4))
 
-
+#Quick Examople
 if __name__ == "__main__":
     main()
+
+
+    cat > /tmp/servers.json <<'EOF'
+{
+  "environment": "production",
+  "servers": [
+    {
+      "name": "web01",
+      "ip": "10.0.1.10"
+    },
+    {
+      "name": "web02",
+      "ip": "10.0.1.11"
+    }
+  ]
+}
+EOF
