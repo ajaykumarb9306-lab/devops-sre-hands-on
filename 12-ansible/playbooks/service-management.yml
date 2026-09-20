@@ -1,0 +1,14 @@
+---
+- name: Service management example
+  hosts: all
+  become: true
+
+  vars:
+    service_name: nginx
+
+  tasks:
+    - name: Ensure service is running and enabled
+      ansible.builtin.service:
+        name: "{{ service_name }}"
+        state: started
+        enabled: true

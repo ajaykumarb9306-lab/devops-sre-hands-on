@@ -1,0 +1,24 @@
+---
+- name: Manage application configuration
+  hosts: local
+  gather_facts: false
+
+  vars:
+    app_directory: /tmp/ansible-devops-lab
+    app_environment: development
+
+  tasks:
+    - name: Ensure application directory exists
+      ansible.builtin.file:
+        path: "{{ app_directory }}"
+        state: directory
+        mode: "0755"
+
+    - name: Create application configuration
+      ansible.builtin.copy:
+        dest: "{{ app_directory }}/app.conf"
+        mode: "0644"
+        content: |
+          application=devops-sre-app
+          environment={{ app_environment }}
+          managed_by=ansible

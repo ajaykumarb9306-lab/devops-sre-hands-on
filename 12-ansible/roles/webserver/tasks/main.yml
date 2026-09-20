@@ -1,0 +1,13 @@
+---
+- name: Install web server
+  ansible.builtin.package:
+    name: "{{ webserver_package }}"
+    state: present
+  notify: Restart web server
+
+- name: Deploy web page
+  ansible.builtin.template:
+    src: index.html.j2
+    dest: /var/www/html/index.html
+    mode: "0644"
+  notify: Restart web server
