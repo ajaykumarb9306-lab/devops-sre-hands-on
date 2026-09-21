@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Pod
+
+metadata:
+  name: secret-demo
+
+spec:
+  containers:
+    - name: demo
+      image: busybox:latest
+
+      command:
+        - sh
+        - -c
+        - "echo 'Application started with injected credentials'; sleep 3600"
+
+      env:
+        - name: APP_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: demo-app-secret
+              key: username
+
+        - name: APP_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: demo-app-secret
+              key: password
